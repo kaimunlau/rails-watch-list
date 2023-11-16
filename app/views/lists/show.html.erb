@@ -1,7 +1,10 @@
 <h1><%= @list.name %></h1>
 
 <% @bookmarks.each do |bookmark| %>
-  <h2><%= Movie.find(bookmark.movie_id).title %></h2>
+  <div class="d-flex gap-2">
+    <h2><%= Movie.find(bookmark.movie_id).title %></h2>
+    <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </div>
   <p><%= bookmark.comment %></p>
 <% end %>
 
