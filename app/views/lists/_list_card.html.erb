@@ -1,0 +1,4 @@
+<div class="d-flex flex-column align-items-center gap-2 border px-2" style="width: 300px">
+  <%= cl_image_tag list.photo.key, width: 300, crop: :fill %>
+  <h2><%= link_to list.name, list, class: 'link-light link-offset-2 link-underline-opacity-0' %></h2>
+</div>

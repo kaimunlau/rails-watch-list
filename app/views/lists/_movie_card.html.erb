@@ -1,0 +1,6 @@
+<div class="d-flex flex-column gap-2 border px-2 w-25 rounded m-4 p-2">
+  <%= image_tag Movie.find(bookmark.movie_id).poster_url, width: 300 %>
+  <%= render "shared/subtitle", subtitle: Movie.find(bookmark.movie_id).title %>
+  <p class="bg-secondary px-3 py-1 rounded">"<em><%= bookmark.comment %></em>"</p>
+  <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-outline-danger' %>
+</div>

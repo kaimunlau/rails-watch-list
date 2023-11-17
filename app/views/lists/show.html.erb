@@ -1,14 +1,11 @@
+<%= render "shared/title", title: @list.name %>
+
 <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 
-<h1><%= @list.name %></h1>
+<%= link_to "Add a new bookmark", new_list_bookmark_path(@list), class: 'btn btn-outline-secondary' %>
 
-<% @bookmarks.each do |bookmark| %>
-  <div class="d-flex gap-2">
-    <h2><%= Movie.find(bookmark.movie_id).title %></h2>
-    <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-  </div>
-  <p><%= bookmark.comment %></p>
-<% end %>
-
-<%= link_to "Add a new bookmark", new_list_bookmark_path(@list) %>
-<%= link_to "Back to lists", lists_path %>
+<div class="container d-flex gap-3 flex-wrap">
+  <% @bookmarks.each do |bookmark| %>
+    <%= render "lists/movie_card", bookmark: bookmark %>
+  <% end %>
+</div>
