@@ -1,4 +1,6 @@
 puts "Cleaning db..."
+Bookmark.destroy_all
+List.destroy_all
 Movie.destroy_all
 
 puts "Creating movies..."
